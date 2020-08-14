@@ -13,6 +13,19 @@
     <link href="~/Theam/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/Theam/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/Theam/css/custom.css" rel="stylesheet">
+    <script>
+      function RegistrationPage()
+      {
+
+        window.location.href = '@Url.Action("Registration")';
+        }
+        function forgotpage()
+      {
+
+        window.location.href = '@Url.Action("Forgotpassword")';
+        }
+       
+    </script>
 </head>
 <body class="forms-main">
     <section>
@@ -65,7 +78,7 @@
                         </div>
                         <div class="row text-center mt-4">
                             <div class="col">
-                                <a href="Forgotpassword">Forgot Password?</a>
+                                <a href="#" onclick="forgotpage()">Forgot Password?</a>
                             </div>
                         </div>
                         <div class="row text-center mt-4">
@@ -76,7 +89,7 @@
                                         Don't Have an account?
                                     </p>
                                   
-                                    <a href="Registration">Create an Account</a>
+                                    <a href="#" onclick="RegistrationPage()">Create an Account</a>
                                 </div>
                             </div>
                         </div>
