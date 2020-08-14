@@ -1,0 +1,94 @@
+﻿@model ASG.Models.RegistrationModel
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="utf-8" />
+    <link href="~/Theam/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Theam/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Theam/css/custom.css" rel="stylesheet">
+</head>
+<body class="forms-main">
+    <section>
+        <div class="container form-box">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-8 col-xl-8 col-sm-12">
+                    @using (Html.BeginForm("Login", "UserManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                    <div class="regi-box">
+                        <div class="alert alert-danger" id="Error" style="display:none; margin-top: 20px;">
+                            <strong><span class="errormessage"></span></strong>
+                        </div>
+                        @if (ViewBag.error != null)
+                        {
+                            <div class="alert alert-danger" id="sucess1" style="margin-top: 20px;">
+                                <strong>@ViewBag.error</strong>
+                            </div>
+                        }
+                        <div class="row">
+
+                            <div class="col text-center">
+
+                                <div class="logo-main pb-5 pt-3">
+                                    <img src="~/Theam/images/asg.png" />
+
+                                </div>
+                                <h1 class="box-title">Welcome Back!</h1>
+                                <!--<p class="text-h3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col mt-4">
+                                @Html.ValidationMessageFor(model => model.Email, "*", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @tabindex = "1", autocomplete = "off", @type = "Email", placeholder = "Email" } })
+                            </div>
+                        </div>
+                        <div class="row align-items-center mt-4">
+                            <div class="col">
+                                @Html.ValidationMessageFor(model => model.Password, "*", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @tabindex = "2", autocomplete = "off", @type = "Password", placeholder = "Password" } })
+                            </div>
+                        </div>
+
+                        <div class="row text-center mt-4">
+                            <div class="col">
+
+                                <input type="submit" id="btnsubmit" class="button outline-outward mt-4" title="Login" value="Login" />
+
+                            </div>
+                        </div>
+                        <div class="row text-center mt-4">
+                            <div class="col">
+                                <a href="Forgotpassword">Forgot Password?</a>
+                            </div>
+                        </div>
+                        <div class="row text-center mt-4">
+                            <div class="col">
+                                
+                                <div class="d-flex justify-content-between">
+                                    <p>
+                                        Don't Have an account?
+                                    </p>
+                                  
+                                    <a href="Registration">Create an Account</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="~/Theam/js/jquery.min.js"></script>
+    <script src="~/Theam/js/popper.min.js"></script>
+    <script src="~/Theam/js/bootstrap.min.js"></script>
+    <script src="~/PageJs/Login.js"></script>
+</body>
+</html>
